@@ -1,0 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Assuming you have a dataset with columns 'ProductCategory' and 'SalesAmount'
+# Load the dataset into a pandas DataFrame
+sales_data = pd.read_csv('sales_data.csv')
+
+# Aggregate sales data by product category
+sales_by_category = sales_data.groupby('ProductCategory')['SalesAmount'].sum().reset_index()
+
+# Sort the data by total sales amount in descending order
+sales_by_category = sales_by_category.sort_values(by='SalesAmount', ascending=False)
+
+# Create line plot
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=sales_by_category, x='ProductCategory', y='SalesAmount', marker='o', color='b')
+plt.title('Total Sales Amount by Product Category (Line Plot)')
+plt.xlabel('Product Category')
+plt.ylabel('Total Sales Amount')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Create scatter plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=sales_by_category, x='ProductCategory', y='SalesAmount', color='r')
+plt.title('Total Sales Amount by Product Category (Scatter Plot)')
+plt.xlabel('Product Category')
+plt.ylabel('Total Sales Amount')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Create bar plot
+plt.figure(figsize=(10, 6))
+sns.barplot(data=sales_by_category, x='ProductCategory', y='SalesAmount', palette='viridis')
+plt.title('Total Sales Amount by Product Category (Bar Plot)')
+plt.xlabel('Product Category')
+plt.ylabel('Total Sales Amount')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
