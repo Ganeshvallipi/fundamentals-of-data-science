@@ -1,0 +1,24 @@
+import pandas as pd
+
+# Load the dataset into a pandas DataFrame
+df = pd.read_csv('customer_orders.csv')
+
+# Explore the data
+print(df.head())  # Display the first few rows of the DataFrame
+print(df.info())  # Display information about the DataFrame, including data types and missing values
+print(df.describe())  # Display summary statistics for numerical columns
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Check for duplicates
+print(df.duplicated().sum())
+
+# Data Cleaning and Preprocessing
+# Handle missing values, duplicates, and inconsistencies
+
+# Analysis and Insights
+# Analyze order quantities, total prices, popular products, customer behavior, etc.
+
+# Visualization
+# Create visualizations to communicate insights
