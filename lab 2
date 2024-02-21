@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming you have a dataset with columns 'smoking' and 'lung_cancer'
+# Load the dataset into a pandas DataFrame
+df = pd.read_csv('lung_cancer_data.csv')
+
+# Calculate the correlation coefficient between smoking and lung cancer rates
+correlation_coefficient = df['smoking'].corr(df['lung_cancer'])
+
+# Create a scatter plot to visualize the relationship
+plt.scatter(df['smoking'], df['lung_cancer'], color='blue', alpha=0.5)
+plt.title('Relationship between Smoking and Lung Cancer')
+plt.xlabel('Smoking Rate')
+plt.ylabel('Lung Cancer Rate')
+plt.grid(True)
+plt.show()
+
+print("Correlation coefficient between smoking and lung cancer rates:", correlation_coefficient)
