@@ -1,0 +1,42 @@
+import pandas as pd
+
+# Step 1: Load the dataset into a pandas DataFrame
+df = pd.read_csv('customer_orders.csv')
+
+# Step 2: Explore the Data
+print(df.head())  # Display the first few rows of the DataFrame
+print(df.info())  # Display information about the DataFrame
+print(df.describe())  # Display summary statistics for numerical columns
+
+# Step 3: Data Cleaning and Preprocessing
+# Handle missing values, duplicates, and inconsistencies if any
+
+# Step 4: Analysis and Insights
+# Order Analysis
+order_quantity = df['Quantity'].sum()
+total_revenue = df['TotalPrice'].sum()
+average_order_value = df['TotalPrice'].mean()
+
+# Customer Analysis
+unique_customers = df['CustomerID'].nunique()
+repeat_customers = df['CustomerID'].value_counts().loc[lambda x: x > 1].count()
+
+# Product Analysis
+popular_products = df['ProductID'].value_counts().head()
+
+# Step 5: Visualization
+# Plot histograms, bar plots, pie charts, etc. to visualize the data
+
+# Step 6: Statistical Analysis
+# Conduct statistical tests or analyses if needed
+
+# Step 7: Derive Insights
+# Summarize your findings and derive actionable insights
+
+# Print Insights
+print("Order Quantity:", order_quantity)
+print("Total Revenue:", total_revenue)
+print("Average Order Value:", average_order_value)
+print("Unique Customers:", unique_customers)
+print("Repeat Customers:", repeat_customers)
+print("Popular Products:", popular_products)
